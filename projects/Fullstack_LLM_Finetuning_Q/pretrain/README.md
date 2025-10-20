@@ -6,6 +6,8 @@ This component handles the pretraining of language models on Q programming langu
 
 The pretraining pipeline supports full fine-tuning on a curated dataset of approximately 1.6M tokens of Q programming language code.
 
+Domain-Adaptive Pretraining: Although our starting point was the Qwen-2.5 Instruct models, we define “pretraining” here as standard language modeling on raw Q-related data, using a next-token prediction objective, rather than instruction-style supervised fine-tuning. It has been shown this kind of pretraining can work well for new tasks [7]. The goal: to imbue the model with as much Q syntax, idiom, and context as possible before later adaptation to our specific LeetCode benchmark. (note: train_pretrain.py and train_sft.py, both used trl.SFTTrainer). 
+
 ## Data Setup
 
 1. **Download the Dataset**:
